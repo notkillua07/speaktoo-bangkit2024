@@ -4,7 +4,7 @@
 
 Method: POST
 URL: /apiv1/email/signup
-###Body Request:
+### Body Request:
 ```json
 {
   "email": "String",
@@ -12,8 +12,8 @@ URL: /apiv1/email/signup
   "username": "String"
 }
 ```
-###Response
-####success
+### Response
+#### success
 code: 201
 Response Body:
 ```json
@@ -27,7 +27,7 @@ Response Body:
   }
 }
 ```
-####fail
+#### fail
 Code: 400
 Response Body:
 ```json
