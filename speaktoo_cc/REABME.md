@@ -2,10 +2,10 @@
 
 ## Sign Up
 
-**Method**: POST  
+*Method*: POST  
 **URL**: /apiv1/email/signup
 
-### Body Request
+**Body Request**
 ```json
 {
   "email": "String",
@@ -14,6 +14,6 @@
 }
 ```
 
-### Response
+**Response**
 **success**
 **code**: 201
