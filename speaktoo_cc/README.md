@@ -3,6 +3,7 @@
 ## Sign Up
 
 Method: POST
+
 URL: /apiv1/email/signup
 ### Body Request:
 ```json
@@ -15,6 +16,7 @@ URL: /apiv1/email/signup
 ### Response
 #### success
 code: 201
+
 Response Body:
 ```json
 {
@@ -29,6 +31,7 @@ Response Body:
 ```
 #### fail
 Code: 400
+
 Response Body:
 ```json
 {
