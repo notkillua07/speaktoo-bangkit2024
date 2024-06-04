@@ -89,7 +89,7 @@ URL: /words/${difficulty}
 ### Body Request:
 ```json
 {
-	“uid” : String
+	“uid”: "String"
 }
 ```
 ### Response
@@ -103,19 +103,19 @@ Response Body:
   "message": "berhasil get words by difficulty",
   "data": [
     {
-      "word_id": Int,
-      "word": String,
-      "completed": Boolean
+      "word_id": "Int",
+      "word": "String",
+      "completed": "Boolean"
     },
     {
-      "word_id": Int,
-      "word": String,
-      "completed": Boolean
+      "word_id": "Int",
+      "word": "String",
+      "completed": "Boolean"
     },
     {
-      "word_id": Int,
-      "word": String,
-      "completed": Boolean
+      "word_id": "Int",
+      "word": "String",
+      "completed": "Boolean"
     }
   ]
 }
@@ -127,8 +127,8 @@ Code: 404
 Response Body:
 ```json
 {
-  “status” : “fail”,
-  “message” : “gagal get words”
+  “status”: “fail”,
+  “message”: “gagal get words”
 }
 ```
 
@@ -145,10 +145,10 @@ code: 200
 Response Body:
 ```json
 {
-	“status” : “success”,
-	“message” : “berhasil get”,
-	“data” : {
-	  “word” : String,
+	“status”: “success”,
+	“message”: “berhasil get”,
+	“data”: {
+	  “word”: String,
 	  “meaning” : Array,
 	  “audio” : mp3
   }
@@ -161,8 +161,8 @@ Code: 404
 Response Body:
 ```json
 {
-  “status” : “fail”,
-  “message” : “gagal get word”
+  “status”: “fail”,
+  “message”: “gagal get word”
 }
 ```
 
@@ -175,8 +175,8 @@ URL: /user/progress
 ### Body Request:
 ```json
 {
-	“uid” : String,
-	“progress”: Int
+  “uid”: "String",
+	“progress”: "Int"
 }
 ```
 
@@ -187,11 +187,11 @@ code: 200
 Response Body:
 ```json
 {
-	“status” : “success”,
-	“message” : “berhasil update progress”,
-	“data” : {
-	  “uid” : String,
-	  “progress” : Int,
+	“status”: “success”,
+	“message”: “berhasil update progress”,
+	“data”: {
+	  “uid”: "String",
+	  “progress”: "Int",
   }
 }
 
@@ -202,8 +202,8 @@ Code: 400
 Response Body:
 ```json
 {
-	“status” : “fail”,
-	“message” : “gagal update progress”
+	“status”: “fail”,
+	“message”: “gagal update progress”
 }
 ```
 
@@ -216,7 +216,7 @@ URL: /user/logs
 ### Body Request:
 ```json
 {
-	“uid” : String,
+	“uid”: String,
 	“wid”: Int
 }
 ```
@@ -228,8 +228,8 @@ code: 200
 Response Body:
 ```json
 {
-	“status” : “success”,
-	“message” : “berhasil post logs”
+	“status”: “success”,
+	“message”: “berhasil post logs”
 }
 ```
 #### fail
@@ -238,8 +238,8 @@ Code: 400
 Response Body:
 ```json
 {
-	“status” : “fail”,
-	“message” : “gagal post logs”
+	“status”: “fail”,
+	“message”: “gagal post logs”
 }
 ```
 
@@ -266,7 +266,7 @@ Response Body:
 {
   "status": "success",
   "message": "berhasil mengganti username",
-  "data": String
+  "data": "String"
 }
 ```
 #### fail
@@ -275,8 +275,8 @@ Code: 404
 Response Body:
 ```json
 {
-	“status” : “fail”,
-	“message” : “mohon cek kembail akun anda”
+	“status”: “fail”,
+	“message”: “mohon cek kembail akun anda”
 }
 ```
 
@@ -311,7 +311,7 @@ Code: 400
 Response Body:
 ```json
 {
-	“status” : “fail”,
-	“message” : “mohon cek kembail file anda”
+  “status”: “fail”,
+	“message”: “mohon cek kembail file anda”
 }
 ```
