@@ -8,9 +8,9 @@ URL: /email/signup
 ### Body Request:
 ```json
 {
-  "email": String,
-  "password": String,
-  "username": String
+  "email": "String",
+  "password": "String",
+  "username": "String"
 }
 ```
 ### Response
@@ -23,9 +23,9 @@ Response Body:
   "status": "success",
   "message": "user berhasil ditambahkan",
   "data": {
-    "uid": String,
-    "email": String,
-    "username": String
+    "uid": "String",
+    "email": "String",
+    "username": "String"
   }
 }
 ```
@@ -48,8 +48,8 @@ URL: /email/login
 ### Body Request:
 ```json
 {
-  "email": String,
-  "password": String
+  "email": "String",
+  "password": "String"
 }
 ```
 ### Response
@@ -62,11 +62,11 @@ Response Body:
   "status": "success",
   "message": "user berhasil ditemukan",
   "data": {
-    "uid": String,
-    "email": String,
-    "username": String,
-    "progress": Int,
-    "profile_pic": String
+    "uid": "String",
+    "email": "String",
+    "username": "String",
+    "progress": "Int",
+    "profile_pic": "String"
   }
 }
 ```
@@ -203,7 +203,7 @@ Response Body:
 ```json
 {
 	“status” : “fail”,
-  “message” : “gagal update progress”
+	“message” : “gagal update progress”
 }
 ```
 
@@ -239,7 +239,7 @@ Response Body:
 ```json
 {
 	“status” : “fail”,
-  “message” : “gagal post logs”
+	“message” : “gagal post logs”
 }
 ```
 
@@ -252,8 +252,8 @@ URL: /user/username
 ### Body Request:
 ```json
 {
-	“uid”: String,
-	“username”: String
+	“uid”: "String",
+	“username”: "String"
 }
 ```
 
@@ -276,7 +276,7 @@ Response Body:
 ```json
 {
 	“status” : “fail”,
-  “message” : “mohon cek kembail akun anda”
+	“message” : “mohon cek kembail akun anda”
 }
 ```
 
@@ -289,8 +289,8 @@ URL: /user/profile
 ### Body Request:
 ```json
 {
-	“uid”: String,
-	“Image”: File
+	“uid”: "String",
+	“Image”: "File"
 }
 ```
 
@@ -312,6 +312,6 @@ Response Body:
 ```json
 {
 	“status” : “fail”,
-  “message” : “mohon cek kembail file anda”
+	“message” : “mohon cek kembail file anda”
 }
 ```
