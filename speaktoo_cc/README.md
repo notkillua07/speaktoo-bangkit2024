@@ -145,15 +145,14 @@ code: 200
 Response Body:
 ```json
 {
-	“status”: “success”,
-	“message”: “berhasil get”,
-	“data”: {
-	  “word”: String,
-	  “meaning” : Array,
-	  “audio” : mp3
+  "status": "success",
+  "message": "berhasil get,
+  "data": {
+    “word”: "String",
+    “meaning” : "Array",
+    “audio” : "mp3"
   }
 }
-
 ```
 #### fail
 Code: 404
@@ -175,8 +174,8 @@ URL: /user/progress
 ### Body Request:
 ```json
 {
-  “uid”: "String",
-	“progress”: "Int"
+  "uid": "String",
+  "progress": "Int"
 }
 ```
 
@@ -187,14 +186,13 @@ code: 200
 Response Body:
 ```json
 {
-	“status”: “success”,
-	“message”: “berhasil update progress”,
-	“data”: {
-	  “uid”: "String",
-	  “progress”: "Int",
+  "status": "success",
+  "message": "berhasil update progress",
+  "data": {
+    "uid": "String",
+    "progress": "Int"
   }
 }
-
 ```
 #### fail
 Code: 400
@@ -202,8 +200,8 @@ Code: 400
 Response Body:
 ```json
 {
-	“status”: “fail”,
-	“message”: “gagal update progress”
+  "status": "fail",
+  "message": "gagal update progress"
 }
 ```
 
@@ -216,8 +214,8 @@ URL: /user/logs
 ### Body Request:
 ```json
 {
-	“uid”: String,
-	“wid”: Int
+  "uid": "String",
+  "wid": "Int"
 }
 ```
 
@@ -228,8 +226,8 @@ code: 200
 Response Body:
 ```json
 {
-	“status”: “success”,
-	“message”: “berhasil post logs”
+  "status": "success",
+  "message": "berhasil post logs"
 }
 ```
 #### fail
@@ -238,8 +236,8 @@ Code: 400
 Response Body:
 ```json
 {
-	“status”: “fail”,
-	“message”: “gagal post logs”
+  "status": "fail",
+  "message": "gagal post logs"
 }
 ```
 
@@ -252,8 +250,8 @@ URL: /user/username
 ### Body Request:
 ```json
 {
-	“uid”: "String",
-	“username”: "String"
+  "uid": "String",
+  "username": "String"
 }
 ```
 
@@ -275,8 +273,8 @@ Code: 404
 Response Body:
 ```json
 {
-	“status”: “fail”,
-	“message”: “mohon cek kembail akun anda”
+  "status": "fail",
+  "message": "mohon cek kembail akun anda"
 }
 ```
 
@@ -289,8 +287,8 @@ URL: /user/profile
 ### Body Request:
 ```json
 {
-	“uid”: "String",
-	“Image”: "File"
+  "uid": "String",
+  "image": "File"
 }
 ```
 
@@ -311,7 +309,7 @@ Code: 400
 Response Body:
 ```json
 {
-  “status”: “fail”,
-	“message”: “mohon cek kembail file anda”
+  "status": "fail",
+  "message": "mohon cek kembail file anda"
 }
 ```
