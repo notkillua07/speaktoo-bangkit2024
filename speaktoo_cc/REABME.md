@@ -13,3 +13,7 @@
   "username": "String"
 }
 ```
+
+### Response
+**success**
+**code**: 201
