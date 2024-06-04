@@ -89,7 +89,7 @@ URL: /words/${difficulty}
 ### Body Request:
 ```json
 {
-	“uid”: "String"
+  "uid": "String"
 }
 ```
 ### Response
@@ -146,7 +146,7 @@ Response Body:
 ```json
 {
   "status": "success",
-  "message": "berhasil get,
+  "message": "berhasil get",
   "data": {
     “word”: "String",
     “meaning” : "Array",
