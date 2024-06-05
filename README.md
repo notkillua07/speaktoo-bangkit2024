@@ -2,6 +2,17 @@
 
 Welcome to Speaktoo! This repository is dedicated to the development of Speaktoo, an innovative platform aimed at improving the effectiveness of learning how to speak English with proper pronunciation.
 
+## Team Composition
+Team ID: C241-PS162  
+
+- **Antonius Yabes Sieman** (ML) – Universitas Surabaya - [Active] - Main Project Manager
+- **Ari Wijak Sono Setiawan** (ML) – Universitas Airlangga - [Active]
+- **Valentino Ruslam** (ML) – Universitas Surabaya - [Active] - ML Manager
+- **Auditya Maulana Adnan** (CC) – Institut Teknologi Sepuluh Nopember - [Active] - CC Manager
+- **Andana Satrio Herdiansah** (CC) – Institut Teknologi Sepuluh Nopember - [Active]
+- **Evan Darya Kusuma** (MD) – Institut Teknologi Sepuluh Nopember - [Active] - MD Manager
+- **Philipus Febriano Kurnia Putra** (MD) – Universitas Gadjah Mada - [Active]
+
 ## Table of Contents
 
 - [Introduction](#introduction)
