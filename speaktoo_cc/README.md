@@ -2,6 +2,19 @@
 
 Dokumentasi ini berisi tentang fitur - fitur yang ada dalam API Speaktoo. Dengan adanya dokumentasi ini diharapkan tim MD dapat memahami bagaimana cara menggunakan API ini.
 
+### Link API
+```
+https://speaktoo-api-ygiysmsnnq-as.a.run.app
+```
+
+Bila API me-return JSON seperti dibawah atau mengalami server error, mohon menghubungi tim CC
+```json
+{
+  "status": "fail",
+  "message": "harap maklum"
+}
+```
+
 ## Sign Up
 
 Fitur ini digunakan ketika user ingin melakukan sign up akun baru. Pastikan user belum pernah melakukan sign up dengan email yang sama.
@@ -20,9 +33,8 @@ Fitur ini digunakan ketika user ingin melakukan sign up akun baru. Pastikan user
 ```
 ### Response
 
-- Success
-code: 201
-Response Body:
+- Success Code: 201
+- Response Body:
 ```json
 {
   "status": "success",
@@ -34,9 +46,8 @@ Response Body:
   }
 }
 ```
-- Fail
-Code: 400
-Response Body:
+- Fail Code: 400
+- Response Body:
 ```json
 {
   "status": "fail",
@@ -62,9 +73,8 @@ Fitur ini digunakan ketika user ingin login dengan akun yang sudah tersedia. Pas
 
 ### Response
 
-- Success
-code: 200
-Response Body:
+- Success Code: 200
+- Response Body:
 ```json
 {
   "status": "success",
@@ -78,9 +88,8 @@ Response Body:
   }
 }
 ```
-- Fail
-Code: 400
-Response Body:
+- Fail Code: 400
+- Response Body:
 ```json
 {
   "status": "fail",
@@ -104,9 +113,8 @@ Fitur ini digunakan ketika user ingin menampilkan seluruh word yang tersedia di 
 ```
 
 ### Response
-- Success
-code: 200
-Response Body:
+- Success Code: 200
+- Response Body:
 ```json
 {
   "status": "success",
@@ -131,9 +139,8 @@ Response Body:
 }
 
 ```
-- Fail
-Code: 404
-Response Body:
+- Fail Code: 404
+- Response Body:
 ```json
 {
   "status": "fail",
@@ -152,9 +159,8 @@ Fitur ini digunakan ketika user ingin mengetahui informasi detail dari sebuah wo
 
 ### Response
 
-- Success
-code: 200
-Response Body:
+- Success Code: 200
+- Response Body:
 ```json
 {
   "status": "success",
@@ -166,9 +172,8 @@ Response Body:
   }
 }
 ```
-- Fail
-Code: 404
-Response Body:
+- Fail Code: 404
+- Response Body:
 ```json
 {
   "status": "fail",
@@ -193,9 +198,8 @@ Fitur ini digunakan ketika user ingin mengupdate progress. Pastikan uid sudah be
 ```
 ### Response
 
-- Success
-code: 200
-Response Body:
+- Success Code: 200
+- Response Body:
 ```json
 {
   "status": "success",
@@ -206,9 +210,8 @@ Response Body:
   }
 }
 ```
-- Fail
-Code: 400
-Response Body:
+- Fail Code: 400
+- Response Body:
 ```json
 {
   "status": "fail",
@@ -232,18 +235,16 @@ Fitur ini digunakan ketika user telah menyelesaikan suatu word. Dalam request, "
 ```
 
 ### Response
-- Success
-code: 200
-Response Body:
+- Success Code: 200
+- Response Body:
 ```json
 {
   "status": "success",
   "message": "berhasil post logs"
 }
 ```
-- Fail
-Code: 400
-Response Body:
+- Fail Code: 400
+- Response Body:
 ```json
 {
   "status": "fail",
@@ -267,9 +268,8 @@ Fitur ini digunakan ketika user ingin meng-edit username. Pastikan uid sudah ben
 ```
 
 ### Response
-- Success
-code: 200
-Response Body:
+- Success Code: 200
+- Response Body:
 ```json
 {
   "status": "success",
@@ -277,9 +277,8 @@ Response Body:
   "data": "String"
 }
 ```
-- Fail
-Code: 404
-Response Body:
+- Fail Code: 404
+- Response Body:
 ```json
 {
   "status": "fail",
@@ -303,9 +302,8 @@ Fitur ini digunakan ketika user ingin meng-upload sebuah profile picture. API ak
 ```
 
 ### Response
-- Success
-code: 200
-Response Body:
+- Success Code: 200
+- Response Body:
 ```json
 {
   "status": "success",
@@ -313,9 +311,8 @@ Response Body:
   "data": "url"
 }
 ```
-- Fail
-Code: 400
-Response Body:
+- Fail Code: 400
+- Response Body:
 ```json
 {
   "status": "fail",
