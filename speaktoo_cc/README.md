@@ -1,11 +1,16 @@
-# Contract API Speaktoo
+# Dokumentasi API Speaktoo
+
+Dokumentasi ini berisi tentang fitur - fitur yang ada dalam API Speaktoo. Dengan adanya dokumentasi ini diharapkan tim MD dapat memahami bagaimana cara menggunakan API ini.
 
 ## Sign Up
 
-Method: POST
+Fitur ini digunakan ketika user ingin melakukan sign up akun baru. Pastikan user belum pernah melakukan sign up dengan email yang sama.
 
-URL: /email/signup
-### Body Request:
+### Request
+
+- Method: POST
+- URL: /email/signup
+- Body Request:
 ```json
 {
   "email": "String",
@@ -14,9 +19,9 @@ URL: /email/signup
 }
 ```
 ### Response
-#### success
-code: 201
 
+- Success
+code: 201
 Response Body:
 ```json
 {
@@ -29,9 +34,8 @@ Response Body:
   }
 }
 ```
-#### fail
+- Fail
 Code: 400
-
 Response Body:
 ```json
 {
@@ -42,20 +46,24 @@ Response Body:
 
 ## Login
 
-Method: POST
+Fitur ini digunakan ketika user ingin login dengan akun yang sudah tersedia. Pastikan credential user sudah benar.
 
-URL: /email/login
-### Body Request:
+### Request
+
+- Method: POST
+- URL: /email/login
+- Body Request:
 ```json
 {
   "email": "String",
   "password": "String"
 }
 ```
-### Response
-#### success
-code: 200
 
+### Response
+
+- Success
+code: 200
 Response Body:
 ```json
 {
@@ -70,9 +78,8 @@ Response Body:
   }
 }
 ```
-#### fail
+- Fail
 Code: 400
-
 Response Body:
 ```json
 {
@@ -83,19 +90,22 @@ Response Body:
 
 ## Get Words by Difficulty
 
-Method: POST
+Fitur ini digunakan ketika user ingin menampilkan seluruh word yang tersedia di aplikasi berdasarkan difficulty-nya.
 
-URL: /words/${difficulty}
-### Body Request:
+### Request
+
+- Method: POST
+- URL: /words/${difficulty}
+- Body Request:
 ```json
 {
   "uid": "String"
 }
 ```
-### Response
-#### success
-code: 200
 
+### Response
+- Success
+code: 200
 Response Body:
 ```json
 {
@@ -121,68 +131,70 @@ Response Body:
 }
 
 ```
-#### fail
+- Fail
 Code: 404
-
 Response Body:
 ```json
 {
-  “status”: “fail”,
-  “message”: “gagal get words”
+  "status": "fail",
+  "message": "gagal get words"
 }
 ```
 
 ## Get Word
 
-Method: POST
+Fitur ini digunakan ketika user ingin mengetahui informasi detail dari sebuah word. Meaning yang di-return oleh API berisi Array dari beberapa definisi yang ada dari word tersebut. Audio yang di-return oleh API berupa URL cara pengucapan word.
 
-URL: /word/${word}
+### Request
+
+- Method: POST
+- URL: /word/${word}
 
 ### Response
-#### success
-code: 200
 
+- Success
+code: 200
 Response Body:
 ```json
 {
   "status": "success",
   "message": "berhasil get",
   "data": {
-    “word”: "String",
-    “meaning” : "Array",
-    “audio” : "mp3"
+    "word": "String",
+    "meaning": "Array",
+    "audio": "mp3"
   }
 }
 ```
-#### fail
+- Fail
 Code: 404
-
 Response Body:
 ```json
 {
-  “status”: “fail”,
-  “message”: “gagal get word”
+  "status": "fail",
+  "message": "gagal get word"
 }
 ```
 
 ## Update Progress
 
-Method: PUT
+Fitur ini digunakan ketika user ingin mengupdate progress. Pastikan uid sudah benar.
 
-URL: /user/progress
+### Request
 
-### Body Request:
+- Method: PUT
+- URL: /user/progress
+- Body Request:
 ```json
 {
   "uid": "String",
   "progress": "Int"
 }
 ```
-
 ### Response
-#### success
-code: 200
 
+- Success
+code: 200
 Response Body:
 ```json
 {
@@ -194,9 +206,8 @@ Response Body:
   }
 }
 ```
-#### fail
+- Fail
 Code: 400
-
 Response Body:
 ```json
 {
@@ -207,11 +218,12 @@ Response Body:
 
 ## Post Logs
 
-Method: POST
+Fitur ini digunakan ketika user telah menyelesaikan suatu word. Dalam request, "wid" adalah "word_id".
 
-URL: /user/logs
-
-### Body Request:
+### Request
+- Method: POST
+- URL: /user/logs
+- Body Request:
 ```json
 {
   "uid": "String",
@@ -220,9 +232,8 @@ URL: /user/logs
 ```
 
 ### Response
-#### success
+- Success
 code: 200
-
 Response Body:
 ```json
 {
@@ -230,9 +241,8 @@ Response Body:
   "message": "berhasil post logs"
 }
 ```
-#### fail
+- Fail
 Code: 400
-
 Response Body:
 ```json
 {
@@ -243,11 +253,12 @@ Response Body:
 
 ## Edit Username
 
-Method: PUT
+Fitur ini digunakan ketika user ingin meng-edit username. Pastikan uid sudah benar.
 
-URL: /user/username
-
-### Body Request:
+### Request
+- Method: PUT
+- URL: /user/username
+-  Body Request:
 ```json
 {
   "uid": "String",
@@ -256,9 +267,8 @@ URL: /user/username
 ```
 
 ### Response
-#### success
+- Success
 code: 200
-
 Response Body:
 ```json
 {
@@ -267,9 +277,8 @@ Response Body:
   "data": "String"
 }
 ```
-#### fail
+- Fail
 Code: 404
-
 Response Body:
 ```json
 {
@@ -280,11 +289,12 @@ Response Body:
 
 ## Upload Profile Picture
 
-Method: POST
+Fitur ini digunakan ketika user ingin meng-upload sebuah profile picture. API akan return URL dari file profile picture. Pastikan uid sudah benar.
 
-URL: /user/profile
-
-### Body Request:
+### Request
+- Method: POST
+- URL: /user/profile
+- Body Request:
 ```json
 {
   "uid": "String",
@@ -293,19 +303,18 @@ URL: /user/profile
 ```
 
 ### Response
-#### success
+- Success
 code: 200
-
 Response Body:
 ```json
 {
   "status": "success",
-  "message": "berhasil upload profile picture"
+  "message": "berhasil upload profile picture",
+  "data": "url"
 }
 ```
-#### fail
+- Fail
 Code: 400
-
 Response Body:
 ```json
 {
