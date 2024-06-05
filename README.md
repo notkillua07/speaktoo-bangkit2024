@@ -5,13 +5,13 @@ Welcome to Speaktoo! This repository is dedicated to the development of Speaktoo
 ## Team Composition
 Team ID: C241-PS162  
 
-- **Antonius Yabes Sieman** (ML) – Universitas Surabaya - [Active] - Main Project Manager
-- **Ari Wijak Sono Setiawan** (ML) – Universitas Airlangga - [Active]
-- **Valentino Ruslam** (ML) – Universitas Surabaya - [Active] - ML Manager
-- **Auditya Maulana Adnan** (CC) – Institut Teknologi Sepuluh Nopember - [Active] - CC Manager
-- **Andana Satrio Herdiansah** (CC) – Institut Teknologi Sepuluh Nopember - [Active]
-- **Evan Darya Kusuma** (MD) – Institut Teknologi Sepuluh Nopember - [Active] - MD Manager
-- **Philipus Febriano Kurnia Putra** (MD) – Universitas Gadjah Mada - [Active]
+- **<span style="color:green">[Active]</span> - **Antonius Yabes Sieman** (ML) – Universitas Surabaya - Main Project Manager
+- **<span style="color:green">[Active]</span> - **Ari Wijak Sono Setiawan** (ML) – Universitas Airlangga
+- **<span style="color:green">[Active]</span> - **Valentino Ruslam** (ML) – Universitas Surabaya - ML Manager
+- **<span style="color:green">[Active]</span> - **Auditya Maulana Adnan** (CC) – Institut Teknologi Sepuluh Nopember - CC Manager
+- **<span style="color:green">[Active]</span> - **Andana Satrio Herdiansah** (CC) – Institut Teknologi Sepuluh Nopember 
+- **<span style="color:green">[Active]</span> - **Evan Darya Kusuma** (MD) – Institut Teknologi Sepuluh Nopember - MD Manager
+- **<span style="color:green">[Active]</span> - **Philipus Febriano Kurnia Putra** (MD) – Universitas Gadjah Mada
 
 ## Table of Contents
 
