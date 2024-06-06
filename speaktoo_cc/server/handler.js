@@ -268,13 +268,14 @@ async function uploadProfilePic(user_id, file, filename){
 
         return {
             'status': 'success',
-            'message': 'berhasil upload profile picture'
+            'message': 'berhasil upload profile picture',
+            'data': result
         };
     } catch (error) {
         console.log(error);
         return {
             'status': 'fail',
-            'message': 'terjadi kesalahan pada server'
+            'message': 'mohon cek kembail file anda'
         };
     }
 }
@@ -290,4 +291,3 @@ module.exports = {
     editUsername,
     uploadProfilePic
 };
-
