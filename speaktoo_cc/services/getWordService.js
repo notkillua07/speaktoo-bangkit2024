@@ -4,17 +4,10 @@ function splitResponse(data){
     let word = data[0].word;
     let audio = 'maaf audio tidak tersedia';
     let definition = data[0].meanings;
-        
-    data[0].phonetics.forEach((phonetic) => {
-        if(phonetic.audio != ''){
-            audio = phonetic.audio
-        }
-    });
 
     return {
         'word': word,
-        'meaning': definition,
-        'audio': audio
+        'meaning': definition
     };
 }
 
@@ -29,11 +22,11 @@ async function getWordService(word) {
             return result;
         });
   
-        const results = await Promise.all(promises);
+        const results = await Promise.all(promises); // Wait for all promises to resolve
         return results;
     } catch (error) {
-        console.log(error);
-        return 'fail';
+      console.log(error);
+      return 'fail';
     }
 }  
 

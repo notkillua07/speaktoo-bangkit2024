@@ -28,7 +28,10 @@ async function getWord(word) {
         return {
             'status': 'success',
             'message': 'berhasil get',
-            'data': result
+            'data': {
+                'audio': encodeURI('https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=en&q=' + word),
+                result
+            }
         };
     }
     catch(error) {
