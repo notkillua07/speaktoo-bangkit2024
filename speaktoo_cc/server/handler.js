@@ -1,6 +1,6 @@
 const getWordService = require('../services/getWordService')
 const signupEmail = require('../services/signupEmail');
-const loginEmail = require('../services/loginEmail');
+const {loginEmail, editPassword} = require('../services/loginEmail');
 const forgetPassword = require('../services/forgetPassword');
 const uploadUserProfilePic = require('../services/profileUser');
 const { 
@@ -272,6 +272,30 @@ async function uploadProfilePic(user_id, file, filename){
     }
 }
 
+async function ubahPassword(email, oldPassword, newPassword){
+    try {
+        const result = await editPassword(email, oldPassword, newPassword);
+
+        if(result === 'fail'){
+            return {
+                'status': 'fail',
+                'message': 'gagal mengganti password'
+            };
+        }
+
+        return {
+            'status': 'success',
+            'message': 'berhasil mengganti password'
+        };
+    } catch (error) {
+        console.log(error);
+        return {
+            'status': 'fail',
+            'message': 'gagal mengganti password'
+        };
+    }
+}
+
 module.exports = { 
     getWord, 
     loginUser, 
@@ -281,6 +305,6 @@ module.exports = {
     postLogs, 
     userForgetPassword,
     editUsername,
-    uploadProfilePic
+    uploadProfilePic,
+    ubahPassword
 };
-
