@@ -87,9 +87,14 @@ async def transcribe_audio(file: UploadFile = File(...), reference_passage: str 
             with open(input_audio_path, "wb") as f:
                 f.write(await file.read())
 
-            # Convert the audio file to the required format
-            converted_audio_path = os.path.join(tmpdirname, f"converted_{file.filename}.wav")
-            convert_audio(input_audio_path, converted_audio_path)
+            # Check if the file is already a 16000Hz WAV
+            with wave.open(input_audio_path, 'rb') as wf:
+                if wf.getframerate() == 16000 and wf.getnchannels() == 1 and wf.getsampwidth() == 2:
+                    converted_audio_path = input_audio_path
+                else:
+                    # Convert the audio file to the required format
+                    converted_audio_path = os.path.join(tmpdirname, f"converted_{file.filename}.wav")
+                    convert_audio(input_audio_path, converted_audio_path)
 
             # Read the converted WAV file
             audio_data = read_wav_file(converted_audio_path)
@@ -104,7 +109,7 @@ async def transcribe_audio(file: UploadFile = File(...), reference_passage: str 
             "transcription": transcribed_text,
             "accuracy": accuracy,
             "feedback": feedback,
-            "wrong_words" : wrong_words,
+            "wrong_words": wrong_words,
         })
 
     except Exception as e:
