@@ -153,8 +153,6 @@ async function getWordsByDifficulty(user_id, difficulty) {
             result.push({ ...item, completed });
         });
 
-        console.log(result);
-
         return {
             'status' : 'success',
 	        'message' : 'berhasil get words by difficulty',
