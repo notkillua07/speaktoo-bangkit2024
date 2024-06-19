@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Speaktoo</string>
+    <string name="press_to_go_back">Press to go back</string>
+    <string name="email_or_username">Email or Username</string>
+    <string name="we_will_send_you_a_message">* We will send you a message to set or reset your new password</string>
+    <string name="submit">Submit</string>
+    <string name="definition">definition</string>
+    <string name="press_to_go_input_voice">Press to go input voice</string>
+    <string name="pronunciation">pronunciation</string>
+    <string name="welcome_back">Welcome\nBack</string>
+    <string name="press_to_output_voice">Press to output voice</string>
+    <string name="word">Word</string>
+</resources>
