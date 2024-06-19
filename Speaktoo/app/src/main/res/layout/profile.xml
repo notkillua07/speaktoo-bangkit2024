@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".pages.Profile">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Use ConstraintLayout for precise positioning of button and text -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/arrowProfile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:clickable="true"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0"
+                    app:srcCompat="@drawable/baseline_arrow_back_ios_new_24"
+                    android:contentDescription="Press to go back"/>
+
+                <TextView
+                    android:id="@+id/profile_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Profile"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ImageView
+                android:id="@+id/profile_imageView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/pp" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/profile_personal_details"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:text="Personal Details"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/profile_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:text="Email Address" />
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/edit_text_background">
+
+                        <TextView
+                            android:id="@+id/textView1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:text="TextView" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:id="@+id/profile_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:text="Password" />
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/edit_text_background">
+
+                        <TextView
+                            android:id="@+id/textView2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:text="TextView" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:id="@+id/profile_business_details"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:text="Business Address Details"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/profile_pincode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:text="Pincode" />
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/edit_text_background">
+
+                        <TextView
+                            android:id="@+id/textView3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:text="TextView" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:id="@+id/profile_address"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:text="Address" />
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/edit_text_background">
+
+                        <TextView
+                            android:id="@+id/textView4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:text="TextView" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:id="@+id/profile_city"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:text="City" />
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/edit_text_background">
+
+                        <TextView
+                            android:id="@+id/textView5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:text="TextView" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:id="@+id/profile_state"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:text="State" />
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/edit_text_background">
+
+                        <TextView
+                            android:id="@+id/textView6"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:text="TextView" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:id="@+id/profile_country"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:text="Country" />
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/edit_text_background">
+
+                        <TextView
+                            android:id="@+id/textView7"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:text="TextView" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:id="@+id/profile_bank_details"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:text="Bank Account Details"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/profile_bank_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:text="Bank Account Number" />
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="@drawable/edit_text_background">
+
+                        <TextView
+                            android:id="@+id/textView8"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:text="TextView" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:id="@+id/profile_account_holder"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:text="Account Holder’s Name" />
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/edit_text_background">
+
+                        <TextView
+                            android:id="@+id/textView9"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:text="TextView" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:id="@+id/profile_ifsc"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:text="IFSC Code" />
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/edit_text_background">
+
+                        <TextView
+                            android:id="@+id/textView10"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:text="TextView" />
+                    </FrameLayout>
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
