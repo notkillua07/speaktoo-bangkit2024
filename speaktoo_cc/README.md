@@ -154,7 +154,7 @@ Fitur ini digunakan ketika user ingin mengetahui informasi detail dari sebuah wo
 
 ### Request
 
-- Method: POST
+- Method: GET
 - URL: /word/${word}
 
 ### Response
