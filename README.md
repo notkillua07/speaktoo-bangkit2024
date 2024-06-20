@@ -1,4 +1,5 @@
-![image](https://github.com/notkillua07/speaktoo-bangkit2024/assets/112600181/d906c48a-ce17-4ae9-8cd4-c1ac08e1c26e)# Speaktoo
+![image](https://github.com/notkillua07/speaktoo-bangkit2024/assets/112600181/d906c48a-ce17-4ae9-8cd4-c1ac08e1c26e)
+# Speaktoo
 
 Welcome to Speaktoo! This repository is dedicated to the development of Speaktoo, an innovative platform aimed at improving the effectiveness of learning how to speak English with proper pronunciation.
 
