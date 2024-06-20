@@ -16,11 +16,14 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.speaktoo.api.base.RetrofitClient
+import com.example.speaktoo.models.TranscriptionResponse
 import com.example.speaktoo.models.WordDetailResponse
 import com.example.speaktoo.models.YourResponseClass
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import okhttp3.RequestBody.Companion.asRequestBody
+import okhttp3.RequestBody.Companion.toRequestBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -161,6 +164,7 @@ class Game : AppCompatActivity() {
         outputFile?.let { filePath ->
             val audioFile = File(filePath)
             sendAudioToAPI(audioFile, currentWord)
+            sendAudioToTranscribeAPI(audioFile, currentWord)
         }
     }
 
@@ -207,6 +211,35 @@ class Game : AppCompatActivity() {
             }
         })
     }
+
+    private fun sendAudioToTranscribeAPI(audioFile: File, referencePassage: String) {
+        val referencePassageBody = referencePassage.toRequestBody("text/plain".toMediaTypeOrNull())
+        val fileBody = audioFile.asRequestBody("audio/wav".toMediaTypeOrNull())
+        val filePart = MultipartBody.Part.createFormData("file", audioFile.name, fileBody)
+
+        RetrofitClient.instance3.transcribe(referencePassageBody, filePart).enqueue(object : Callback<TranscriptionResponse> {
+            override fun onResponse(call: Call<TranscriptionResponse>, response: Response<TranscriptionResponse>) {
+                if (response.isSuccessful) {
+                    val transcriptionResponse = response.body()
+                    if (transcriptionResponse != null) {
+                        Toast.makeText(this@Game, "Transcription: ${transcriptionResponse.transcription}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@Game, "Accuracy: ${transcriptionResponse.accuracy}", Toast.LENGTH_SHORT).show()
+                        // Handle feedback and wrong words if needed
+                    } else {
+                        Toast.makeText(this@Game, "Failed to get valid response", Toast.LENGTH_SHORT).show()
+                    }
+                } else {
+                    Toast.makeText(this@Game, "Failed to send audio", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onFailure(call: Call<TranscriptionResponse>, t: Throwable) {
+                Toast.makeText(this@Game, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+
+
 
 
     private fun hasPermissions(): Boolean {
