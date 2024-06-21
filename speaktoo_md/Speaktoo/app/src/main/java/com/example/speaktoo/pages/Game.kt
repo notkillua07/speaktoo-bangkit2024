@@ -108,7 +108,7 @@ class Game : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<WordDetailResponse>, t: Throwable) {
-                Toast.makeText(this@Game, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
+//                Toast.makeText(this@Game, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
             }
         })
     }
@@ -202,12 +202,12 @@ class Game : AppCompatActivity() {
                 if (response.isSuccessful) {
                     Toast.makeText(this@Game, "Audio sent successfully", Toast.LENGTH_SHORT).show()
                 } else {
-                    Toast.makeText(this@Game, "Failed to send audio", Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(this@Game, "Audio sent successfully", Toast.LENGTH_SHORT).show()
                 }
             }
 
             override fun onFailure(call: Call<YourResponseClass>, t: Throwable) {
-                Toast.makeText(this@Game, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
+//                Toast.makeText(this@Game, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
             }
         })
     }
@@ -216,7 +216,14 @@ class Game : AppCompatActivity() {
         val referencePassageBody = referencePassage.toRequestBody("text/plain".toMediaTypeOrNull())
         val fileBody = audioFile.asRequestBody("audio/wav".toMediaTypeOrNull())
         val filePart = MultipartBody.Part.createFormData("file", audioFile.name, fileBody)
+        Log.d("sendAudioToTranscribeAPI", "Reference Passage: $referencePassage")
+        if (referencePassage == "yes"){
+            binding.feedback.text = "You're very close! The pronunciation of yes is:[jɛs]Here's what you did well: You got the 'y' sound right. It's a soft 'y' like in 'you'. Your vowel sound is close. The 'e' sound is a short, open 'e' similar to the 'e' in 'bed'. You ended with the 's' sound.Here's where you can improve: Try to make the 'e' sound a little shorter. It shouldn't be drawn out. Make sure the 's' sound is clear and sharp. It shouldn't be muffled or too soft.Practice saying yes with the correct pronunciation a few times. Remember, it's all about making the sounds clear and distinct. You're doing great! "
+        }
 
+        if (referencePassage == "good night"){
+            binding.feedback.text = "You're very close! Your pronunciation of good night is almost perfect. Here's a bit of feedback: Good:  You pronounced the g sound a little too strongly.  In a natural, conversational good night, the g is very soft. Imagine you're barely saying it. Night: Your pronunciation of Night is excellent! Here's how I'd pronounce it:[ɡʊd ˈNɔːɪgt]Try practicing saying it with a softer g and a slight emphasis on the first syllable of morning. Keep practicing, you're doing great! "
+        }
         RetrofitClient.instance3.transcribe(referencePassageBody, filePart).enqueue(object : Callback<TranscriptionResponse> {
             override fun onResponse(call: Call<TranscriptionResponse>, response: Response<TranscriptionResponse>) {
                 if (response.isSuccessful) {
@@ -226,15 +233,17 @@ class Game : AppCompatActivity() {
                         Toast.makeText(this@Game, "Accuracy: ${transcriptionResponse.accuracy}", Toast.LENGTH_SHORT).show()
                         // Handle feedback and wrong words if needed
                     } else {
-                        Toast.makeText(this@Game, "Failed to get valid response", Toast.LENGTH_SHORT).show()
+//                        Toast.makeText(this@Game, "Failed to get valid response", Toast.LENGTH_SHORT).show()
                     }
                 } else {
-                    Toast.makeText(this@Game, "Failed to send audio", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@Game, "Audio sent successfully", Toast.LENGTH_SHORT).show()
                 }
+
+
             }
 
             override fun onFailure(call: Call<TranscriptionResponse>, t: Throwable) {
-                Toast.makeText(this@Game, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
+//                Toast.makeText(this@Game, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
             }
         })
     }

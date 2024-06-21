@@ -12,14 +12,40 @@
         android:id="@+id/welcomeBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="sans-serif-medium"
-        android:text="Listen \n Well"
+        android:text="Listen Well"
         android:textColor="@color/white"
         android:textSize="36sp"
-        app:layout_constraintBottom_toTopOf="@+id/guidelineGame"
+        app:layout_constraintStart_toEndOf="@+id/arrowGame"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/word"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="100dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="The word"
+        android:textColor="@color/white"
+        android:textSize="36sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/arrowGame" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/speaker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="100dp"
+        android:clickable="true"
+        android:contentDescription="@string/press_to_output_voice"
+        app:fabSize="normal"
+        app:layout_constraintStart_toEndOf="@+id/word"
+        app:layout_constraintTop_toBottomOf="@+id/arrowGame"
+        app:srcCompat="@drawable/baseline_volume_up_24" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/arrowGame"
@@ -48,6 +74,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guidelineGame">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -67,41 +95,23 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <LinearLayout
+                    <TextView
+                        android:id="@+id/textDefinition"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
-
-                        <Button
-                            android:id="@+id/word"
-                            android:layout_width="241dp"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="8dp"
-                            android:layout_marginRight="8dp"
-                            android:backgroundTint="@color/blue"
-                            android:text="@string/word"
-                            android:textAlignment="textStart"
-                            android:textColorLink="@color/blue"
-                            app:cornerRadius="10dp" />
-
-                        <com.google.android.material.floatingactionbutton.FloatingActionButton
-                            android:id="@+id/speaker"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="8dp"
-                            android:layout_marginRight="8dp"
-                            android:clickable="true"
-                            android:contentDescription="@string/press_to_output_voice"
-                            app:srcCompat="@drawable/baseline_volume_up_24"
-                            app:fabSize="normal"
-                            android:layout_gravity="center"
-                            />
-                    </LinearLayout>
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="Definition"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/arrowGame" />
 
                     <Button
                         android:id="@+id/definition"
-                        android:layout_width="319dp"
-                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
                         android:layout_marginTop="8dp"
                         android:layout_marginRight="8dp"
@@ -111,6 +121,19 @@
                         android:textAlignment="textStart"
                         android:textColorLink="@color/blue"
                         app:cornerRadius="10dp" />
+
+                    <TextView
+                        android:id="@+id/textFeedback"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="Feedback"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/arrowGame" />
 
                     <Button
                         android:id="@+id/feedback"
@@ -126,32 +149,43 @@
                         android:textColorLink="@color/blue"
                         app:cornerRadius="10dp" />
 
-                    <com.google.android.material.floatingactionbutton.FloatingActionButton
-                        android:id="@+id/microphone"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginBottom="30dp"
-                        android:baselineAlignBottom="true"
-                        android:clickable="true"
-                        android:contentDescription="@string/press_to_go_input_voice"
-                        android:focusable="true"
-                        android:foregroundGravity="center"
-                        android:scaleX="1.5"
-                        android:scaleY="1.5"
-                        app:flow_verticalAlign="center"
-                        app:srcCompat="@drawable/baseline_mic_24" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="130dp"
+                        android:orientation="horizontal"></LinearLayout>
 
-                    <TextView
-                        android:id="@+id/microphoneState"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginBottom="30dp"
-                        android:text="Recording Status" />
                 </LinearLayout>
             </ScrollView>
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/microphone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"
+                android:baselineAlignBottom="true"
+                android:clickable="true"
+                android:contentDescription="@string/press_to_go_input_voice"
+                android:focusable="true"
+                android:foregroundGravity="center"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                app:flow_verticalAlign="center"
+                app:layout_constraintBottom_toTopOf="@+id/microphoneState"
+                app:layout_constraintEnd_toEndOf="@+id/scrollView2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/baseline_mic_24" />
+
+            <TextView
+                android:id="@+id/microphoneState"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"
+                android:text="Recording Status"
+                app:layout_constraintBottom_toBottomOf="@+id/scrollView2"
+                app:layout_constraintEnd_toEndOf="@+id/scrollView2"
+                app:layout_constraintStart_toStartOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
