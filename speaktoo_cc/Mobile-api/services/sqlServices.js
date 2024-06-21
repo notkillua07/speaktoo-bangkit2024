@@ -40,7 +40,7 @@ async function updateUserProgress(user_id, progress){
 
 async function getWords(difficulty){
     try {
-        const sql = 'SELECT words.word_id, word FROM words WHERE word_type = ?'
+        const sql = 'SELECT words.word_id, word FROM WORDS WHERE word_type = ?'
         const [result] = await db.query(sql, [difficulty]);
         return result;
     } catch (error) {

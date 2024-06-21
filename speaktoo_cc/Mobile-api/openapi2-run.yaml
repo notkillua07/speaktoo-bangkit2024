@@ -1,0 +1,376 @@
+swagger: '2.0'
+info:
+  title: speaktoo-project speaktoo-project-api-gateway
+  description: API for speaktoo application
+  version: 1.0.0
+schemes:
+- https
+produces:
+- application/json
+x-google-backend:
+  address: https://speaktoo-mobile-ygiysmsnnq-et.a.run.app/
+paths:
+  # Get root endpoint (dummy endpoint)
+  '/':
+    get:
+      summary: Root endpoint
+      operationId: root
+      x-google-backend:
+        address: https://speaktoo-auth-ygiysmsnnq-et.a.run.app/
+      responses:
+        '200':
+          description: A simple message
+          schema:
+            type: string
+
+  # Update user progress (PUT)
+  '/user/progress':
+    put:
+      summary: Update user progress
+      operationId: updateUserProgress
+      parameters:
+      - in: body
+        name: progress
+        description: User input to update progress to the API (User ID, Progress)
+        schema:
+          type: object
+          required:
+            - uid
+            - progress
+          properties:
+            uid:
+              type: string
+            progress:
+              type: integer
+      responses:
+        '200':
+          description: Progress updated successfully
+          schema:
+            type: object
+        '400':
+          description: Bad request (e.g., missing required fields)
+          schema:
+            type: object
+        '500':
+          description: Internal server error
+          schema:
+            type: object
+
+  # Get word definition (GET)
+  '/word/{word}':
+    get:
+      summary: Get word definition
+      operationId: getWord
+      parameters:
+      - in: path
+        name: word
+        type: string
+        required: true
+        description: Word to retrieve definition for
+      responses:
+        '200':
+          description: Word definition retrieved successfully
+          schema:
+            type: object
+        '404':
+          description: Word not found
+          schema:
+            type: object
+        '500':
+          description: Internal server error
+          schema:
+            type: object
+
+  # Get words by difficulty (GET)
+  '/words/{difficulty}':
+    get:
+      summary: Get words by difficulty
+      operationId: getWordsByDifficulty
+      parameters:
+      - in: path
+        name: difficulty
+        type: string
+        required: true
+        description: Difficulty level (e.g., easy, medium, hard)
+      - in: body
+        name: credential
+        description: Credential of the user (User ID)
+        schema:
+          type: object
+          required:
+            - uid
+          properties:
+            uid:
+              type: string
+      responses:
+        '200':
+          description: Words retrieved successfully
+          schema:
+            type: array
+        '404':
+          description: Words not found for this difficulty
+          schema:
+            type: object
+        '500':
+          description: Internal server error
+          schema:
+            type: object
+
+  # Post user logs (POST)
+  '/user/logs':
+    post:
+      summary: Post user logs
+      operationId: postUserLogs
+      parameters:
+      - in: body
+        name: log
+        description: User input to post logs to API (User ID, Word ID)
+        schema:
+          type: object
+          required:
+            - uid
+            - wid
+          properties:
+            uid:
+              type: string
+            wid:
+              type: string
+      responses:
+        '201':
+          description: User logs posted successfully
+          schema:
+            type: object
+        '404':
+          description: Failed to post user logs
+          schema:
+            type: object
+        '500':
+          description: Internal server error
+          schema:
+            type: object
+
+  # Login user (POST)         
+  '/email/login':
+    post:
+      summary: Login user with email and password
+      operationId: loginUser
+      x-google-backend:
+        address: https://speaktoo-auth-ygiysmsnnq-et.a.run.app/email/login
+      parameters:
+      - in: body
+        name: login
+        description: Login credential for user
+        schema:
+          type: object
+          required:
+            - email
+            - password
+          properties:
+            email:
+              type: string
+            password:
+              type: string
+      responses:
+        '201':
+          description: User logged in successfully
+          schema:
+            type: object
+        '400':
+          description: Bad request (e.g., missing required fields, invalid email format)
+          schema:
+            type: object
+        '404':
+          description: User not found or login failed
+          schema:
+            type: object
+        '500':
+          description: Internal server error
+          schema:
+            type: object
+
+  # Signup user (POST)
+  '/email/signup':
+    post:
+      summary: Signup a new user
+      operationId: signupUser
+      x-google-backend:
+        address: https://speaktoo-auth-ygiysmsnnq-et.a.run.app/email/signup
+      parameters:
+      - in: body
+        name: signup
+        description: Signup credential for user
+        schema:
+          type: object
+          required:
+            - email
+            - password
+            - username
+          properties:
+            email:
+              type: string
+            password:
+              type: string
+            username:
+              type: string
+      responses:
+        '201':
+          description: User created successfully
+          schema:
+            type: object
+        '400':
+          description: Bad request (e.g., missing required fields, invalid email format, username already exists)
+          schema:
+            type: object
+        '500':
+          description: Internal server error
+          schema:
+            type: object
+
+  # Forget password (POST)
+  '/email/forpas':
+    post:
+      summary: Send password reset link to user's email
+      operationId: userForgetPassword
+      x-google-backend:
+        address: https://speaktoo-auth-ygiysmsnnq-et.a.run.app/email/forpas
+      parameters:
+      - in: body
+        name: forpas
+        description: Forget password credential input (Email)
+        schema:
+          type: object
+          required:
+            - email
+          properties:
+            email:
+              type: string
+      responses:
+        '200':
+          description: Password reset link sent successfully
+          schema:
+            type: object
+        '404':
+          description: User not found or email not registered
+          schema:
+            type: object
+        '500':
+          description: Internal server error
+          schema:
+            type: object
+
+  # Edit username (PUT)
+  '/user/username':
+    put:
+      summary: Edit user's username
+      operationId: editUsername
+      x-google-backend:
+        address: https://speaktoo-auth-ygiysmsnnq-et.a.run.app/user/username
+      parameters:
+      - in: body
+        name: username
+        description: Edit username input from user
+        schema:
+          type: object
+          required:
+            - uid
+            - username
+          properties:
+            uid:
+              type: string
+            username:
+              type: string
+      responses:
+        '200':
+          description: Username edited successfully
+          schema:
+            type: object
+        '400':
+          description: Bad request (e.g., missing required fields, invalid username format)
+          schema:
+            type: object
+        '404':
+          description: User not found or username update failed
+          schema:
+            type: object
+        '500':
+          description: Internal server error
+          schema:
+            type: object
+
+  # Upload profile picture (POST)
+  '/user/profile':
+    post:
+      summary: Upload user's profile picture
+      operationId: uploadProfilePic
+      x-google-backend:
+        address: https://speaktoo-auth-ygiysmsnnq-et.a.run.app/user/profile
+      consumes:
+        - multipart/form-data
+      parameters:
+      - in: body
+        name: user
+        description: User credential to upload profile pic
+        schema:
+          type: object
+          required:
+            - uid
+          properties:
+            uid:
+              type: string
+      - in: formData
+        name: profilepic
+        type: string
+        required: true
+        description: Image file from user
+      responses:
+        '201':
+          description: Profile picture uploaded successfully
+          schema:
+            type: object
+        '400':
+          description: Bad request (e.g., missing required fields, invalid image format)
+          schema:
+            type: object
+        '500':
+          description: Internal server error
+          schema:
+            type: object
+
+  # Change password (PUT)
+  '/user/pass':
+    put:
+      summary: Change user's password
+      operationId: ubahPassword
+      x-google-backend:
+        address: https://speaktoo-auth-ygiysmsnnq-et.a.run.app/user/pass
+      parameters:
+      - in: body
+        name: pass
+        description: Change password input (Email, Old Pass, New Pass)
+        schema:
+          type: object
+          required:
+            - email
+            - oldPassword
+            - newPassword
+          properties:
+            email:
+              type: string
+            oldPassword:
+              type: string
+            newPassword:
+              type: string
+      responses:
+        '200':
+          description: Password changed successfully
+          schema:
+            type: object
+        '400':
+          description: Bad request (e.g., missing required fields, invalid password format)
+          schema:
+            type: object
+        '404':
+          description: User not found or password change failed
+          schema:
+            type: object
+

@@ -11,7 +11,8 @@ const {
     postLogs, 
     userForgetPassword,
     editUsername,
-    uploadProfilePic
+    uploadProfilePic,
+    ubahPassword
 } = require('./handler');
 
 const upload = multer({ 
@@ -186,12 +187,11 @@ router.put('/user/username', async (req, res) => {
     }
 })
 
-router.post('/user/profile', upload.single('image'), async (req, res) => {
+router.post('/user/profile', upload.none(), async (req, res) => {
     let user_id = req.body.uid;
-    let file = req.file;
-    let filename = req.file.originalname;
+    let file = req.body.image;
     try {
-        const data = await uploadProfilePic(user_id, file, filename);
+        const data = await uploadProfilePic(user_id, file);
         res.status(201);
 
         if(data.status === 'fail'){
@@ -204,6 +204,28 @@ router.post('/user/profile', upload.single('image'), async (req, res) => {
         res.send({
             'status': 'fail',
             'message': 'Terjadi Kesalahan Pada Server'
+        }).status(500);
+    }
+})
+
+router.put('/user/pass', async (req, res) => {
+    let email = req.body.email;
+    let oldPassword = req.body.oldPassword;
+    let newPassword = req.body.newPassword;
+    try {
+        const data = await ubahPassword(email, oldPassword, newPassword);
+        res.status(200);
+
+        if(data.status === 'fail'){
+            res.status(404);
+        }
+
+        res.send(data);
+    } catch (error) {
+        console.log(error);
+        res.send({
+            'status': 'fail',
+            'message': 'harap maklum'
         }).status(500);
     }
 })

@@ -2,12 +2,20 @@ const axios = require('axios');
 
 function splitResponse(data){
     let word = data[0].word;
-    let audio = 'maaf audio tidak tersedia';
-    let definition = data[0].meanings;
+    let meanings = data[0].meanings.map((meaning) => {
+        let definitions = meaning.definitions.map((definition) => {
+            return definition.definition
+        })
+
+        return {
+            'partOfSpeech': meaning.partOfSpeech,
+            'definitions': definitions
+        };
+    });
 
     return {
         'word': word,
-        'meaning': definition
+        'meanings': meanings
     };
 }
 

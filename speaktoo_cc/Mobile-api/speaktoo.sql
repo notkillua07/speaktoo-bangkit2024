@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 30, 2024 at 06:21 AM
+-- Generation Time: Jun 11, 2024 at 03:06 AM
 -- Server version: 8.0.36-0ubuntu0.20.04.1
 -- PHP Version: 7.4.3-4ubuntu2.22
 
@@ -45,23 +45,11 @@ CREATE TABLE `user_logs` (
 CREATE TABLE `user_progress` (
   `user_id` varchar(225) NOT NULL,
   `username` varchar(225) DEFAULT NULL,
-  `progress` int NOT NULL DEFAULT '0'
+  `progress` int NOT NULL DEFAULT '0',
+  `profile_pic` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `user_progress`
---
-
-INSERT INTO `user_progress` (`user_id`, `username`, `progress`) VALUES
-('9Y4guZXNAVhzBTTDEb1tO2w1t8n2', 'andanasher', 0),
-('cw4TAvM9sOZTAPnpo3Xn1ymI7py1', 'ama', 100),
-('fAKY82rDUXXf9fVdLiVnIC38hql2', 'tes', 0),
-('gRDylqE7b8M4Z6MJ0qvnP0SLFFG2', 'user2', 0),
-('lfqAHokn40cFgAmlYIiWnWBsGkF3', 'userrrr1', 0),
-('UCGSqjRdIfQtTgDLuIISKThevoI2', 'userrr1', 0);
-
--- --------------------------------------------------------
-
 --
 -- Table structure for table `words`
 --

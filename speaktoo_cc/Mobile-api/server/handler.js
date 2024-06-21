@@ -1,3 +1,4 @@
+const buffer = require('buffer').Buffer;
 const getWordService = require('../services/getWordService')
 const signupEmail = require('../services/signupEmail');
 const {loginEmail, editPassword} = require('../services/loginEmail');
@@ -29,6 +30,7 @@ async function getWord(word) {
             'status': 'success',
             'message': 'berhasil get',
             'data': {
+                'word': word,
                 'audio': encodeURI('https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=en&q=' + word),
                 result
             }
@@ -153,6 +155,8 @@ async function getWordsByDifficulty(user_id, difficulty) {
             result.push({ ...item, completed });
         });
 
+        console.log(result);
+
         return {
             'status' : 'success',
 	        'message' : 'berhasil get words by difficulty',
@@ -241,13 +245,15 @@ async function editUsername(user_id, username) {
     }
 }
 
-async function uploadProfilePic(user_id, file, filename){
+async function uploadProfilePic(user_id, file){
     try {
-        const file_extension = filename.slice(
-            ((filename.lastIndexOf('.') - 1) >>> 0) + 2
-        );
+        const base64String = file;
+        const file_extension = base64String.split(';')[0].split('/')[1];
+        const base64Data = base64String.split(',')[1];
+
+        const decodedData = buffer.from(base64Data, 'base64');
         
-        const result = await uploadUserProfilePic(user_id, file, file_extension);
+        const result = await uploadUserProfilePic(user_id, decodedData, file_extension);
         const resultSQL = await addUserProfilePic(user_id, result);
 
         if(result === 'fail' || resultSQL === 'fail'){
@@ -259,7 +265,8 @@ async function uploadProfilePic(user_id, file, filename){
 
         return {
             'status': 'success',
-            'message': 'berhasil upload profile picture'
+            'message': 'berhasil upload profile picture',
+            'data': result
         };
     } catch (error) {
         console.log(error);

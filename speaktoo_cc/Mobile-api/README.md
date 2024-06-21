@@ -154,7 +154,7 @@ Fitur ini digunakan ketika user ingin mengetahui informasi detail dari sebuah wo
 
 ### Request
 
-- Method: GET
+- Method: POST
 - URL: /word/${word}
 
 ### Response
@@ -289,6 +289,11 @@ Fitur ini digunakan ketika user ingin meng-edit username. Pastikan uid sudah ben
 ## Upload Profile Picture
 
 Fitur ini digunakan ketika user ingin meng-upload sebuah profile picture. API akan return URL dari file profile picture. Pastikan uid sudah benar.
+
+Format Base64:
+```
+data:image/{file_extension};base64,{base64Data}
+```
 
 ### Request
 - Method: POST
