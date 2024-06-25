@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:fontFamily="sans-serif-medium"
-        android:text="Welcome\nBack"
+        android:text="Welcome"
         android:textColor="@color/white"
         android:textSize="36dp"
         app:layout_constraintBottom_toTopOf="@+id/guidelineLevel"

@@ -10,4 +10,9 @@
     <string name="welcome_back">Welcome\nBack</string>
     <string name="press_to_output_voice">Press to output voice</string>
     <string name="word">Word</string>
+    <string name="icon_splash">Splash</string>
+    <string name="splash_text">SPEAKTOO</string>
+    <string name="changepicture"></string>
+    <string name="btn_picture">Change Profile Picture</string>
+
 </resources>

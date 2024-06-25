@@ -238,8 +238,6 @@ class Game : AppCompatActivity() {
                 } else {
                     Toast.makeText(this@Game, "Audio sent successfully", Toast.LENGTH_SHORT).show()
                 }
-
-
             }
 
             override fun onFailure(call: Call<TranscriptionResponse>, t: Throwable) {
